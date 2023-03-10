@@ -169,7 +169,7 @@ class VoiceBpeTokenizer:
             self.tokenizer = Tokenizer.from_file(vocab_file)
 
     def preprocess_text(self, txt):
-        txt = transliteration_cleaners(txt)
+        txt = basic_cleaners(txt)
         return txt
 
     def encode(self, txt):

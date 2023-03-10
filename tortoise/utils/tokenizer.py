@@ -132,7 +132,7 @@ def basic_cleaners(text):
 
 def transliteration_cleaners(text):
   '''Pipeline for non-English text that transliterates to ASCII.'''
-  text = convert_to_ascii(text)
+#  text = convert_to_ascii(text)
   text = lowercase(text)
   text = collapse_whitespace(text)
   return text
@@ -169,7 +169,7 @@ class VoiceBpeTokenizer:
             self.tokenizer = Tokenizer.from_file(vocab_file)
 
     def preprocess_text(self, txt):
-        txt = english_cleaners(txt)
+        txt = transliteration_cleaners(txt)
         return txt
 
     def encode(self, txt):
